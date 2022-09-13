@@ -1,0 +1,44 @@
+/ friend class can access private and protect member of the class in outside we declare as friend class which class private data
+
+// accessed
+class A
+{
+    int x;
+public:
+
+    friend class B;
+
+
+};
+class B
+{
+    public:
+
+
+
+    void set_value(A &obj)
+    {
+        obj.x=99;
+    }
+    void fun(A &obj)
+    {
+       cout<<obj.x<<endl;
+
+    }
+
+
+
+};
+int main()
+{
+    A obj;
+    A obj2;
+    B obj1;
+    obj1.set_value(obj);
+    obj1.fun(obj);// show only obj pass value 
+    obj1.fun(obj2);// garbage value
+
+
+
+
+}
